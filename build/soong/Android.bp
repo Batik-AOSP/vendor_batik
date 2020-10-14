@@ -21,19 +21,18 @@ batik_generator {
     name: "generated_kernel_includes",
 
     // The headers make command
-    cmd: "$(PATH_OVERRIDE_SOONG) $(KERNEL_MAKE_CMD) $(KERNEL_MAKE_FLAGS) -C $(TARGET_KERNEL_SOURCE) O=$(KERNEL_BUILD_OUT_PREFIX)$(genDir) ARCH=$(KERNEL_ARCH) $(KERNEL_CROSS_COMPILE) headers_install",
+    cmd: "$(PATH_OVERRIDE_SOONG) $(KERNEL_MAKE_CMD) $(KERNEL_MAKE_FLAGS) -C $(TARGET_KERNEL_HEADERS) O=$(KERNEL_BUILD_OUT_PREFIX)$(genDir) ARCH=$(KERNEL_ARCH) $(KERNEL_CROSS_COMPILE) headers_install",
 
     // Directories that can be imported by a cc_* module generated_headers property
     export_include_dirs: [
         "usr/audio/include/uapi",
         "usr/include",
-        "usr/include/audio",
         "usr/include/audio/include/uapi",
         "usr/techpack/audio/include",
     ],
 
     // Sources for dependency tracking
-    dep_root: "$(TARGET_KERNEL_SOURCE)",
+    dep_root: "$(TARGET_KERNEL_HEADERS)",
     dep_files: [
         "Makefile",
         "include/**/*",
@@ -51,65 +50,6 @@ cc_library_headers {
 }
 
 // Target platform agnostic config modules
-
-soong_config_module_type {
-    name: "camera_needs_client_info_lib",
-    module_type: "cc_defaults",
-    config_namespace: "batikGlobalVars",
-    bool_variables: ["camera_needs_client_info_lib"],
-    properties: [
-        "cppflags",
-        "shared_libs",
-    ],
-}
-
-camera_needs_client_info_lib {
-    name: "camera_needs_client_info_lib_defaults",
-    soong_config_variables: {
-        camera_needs_client_info_lib: {
-            cppflags: ["-DCAMERA_NEEDS_CLIENT_INFO_LIB"],
-            shared_libs: ["//hardware/oneplus:vendor.oneplus.hardware.camera@1.0"],
-        },
-    },
-}
-
-soong_config_module_type {
-    name: "disable_postrender_cleanup",
-    module_type: "cc_defaults",
-    config_namespace: "batikGlobalVars",
-    bool_variables: ["disable_postrender_cleanup"],
-    properties: ["cppflags"],
-}
-
-disable_postrender_cleanup {
-    name: "disable_postrender_cleanup_defaults",
-    soong_config_variables: {
-        disable_postrender_cleanup: {
-            cppflags: ["-DDISABLE_POSTRENDER_CLEANUP"],
-        },
-    },
-}
-
-soong_config_module_type {
-    name: "aapt_version_code",
-    module_type: "java_defaults",
-    config_namespace: "batikGlobalVars",
-    value_variables: ["aapt_version_code"],
-    properties: ["aaptflags"],
-}
-
-aapt_version_code {
-    name: "aapt_version_code_defaults",
-    soong_config_variables: {
-        aapt_version_code: {
-            aaptflags: [
-                "--version-code",
-                "%s",
-            ],
-        },
-    },
-}
-
 soong_config_module_type {
     name: "gralloc_10_usage_bits",
     module_type: "cc_defaults",
@@ -145,45 +85,11 @@ target_process_sdk_version_overrides {
 }
 
 soong_config_module_type {
-    name: "gralloc_handle_reserved_size",
-    module_type: "cc_defaults",
-    config_namespace: "batikGlobalVars",
-    bool_variables: ["gralloc_handle_has_reserved_size"],
-    properties: ["export_cflags"],
-}
-
-gralloc_handle_reserved_size {
-    name: "gralloc_handle_has_reserved_size_defaults",
-    soong_config_variables: {
-        gralloc_handle_has_reserved_size: {
-            export_cflags: ["-DGRALLOC_HANDLE_HAS_RESERVED_SIZE"],
-        },
-    },
-}
-
-soong_config_module_type {
     name: "target_shim_libs",
     module_type: "cc_defaults",
     config_namespace: "batikGlobalVars",
     value_variables: ["target_ld_shim_libs"],
     properties: ["cppflags"],
-}
-
-soong_config_module_type {
-    name: "gralloc_handle_custom_content_md_reserved_size",
-    module_type: "cc_defaults",
-    config_namespace: "batikGlobalVars",
-    bool_variables: ["gralloc_handle_has_custom_content_md_reserved_size"],
-    properties: ["export_cflags"],
-}
-
-gralloc_handle_custom_content_md_reserved_size {
-    name: "gralloc_handle_has_custom_content_md_reserved_size_defaults",
-    soong_config_variables: {
-        gralloc_handle_has_custom_content_md_reserved_size: {
-            export_cflags: ["-DGRALLOC_HANDLE_HAS_CUSTOM_CONTENT_MD_RESERVED_SIZE"],
-        },
-    },
 }
 
 target_shim_libs {
@@ -213,21 +119,21 @@ vendor_init {
 }
 
 soong_config_module_type {
-    name: "surfaceflinger_udfps_lib",
+    name: "surfaceflinger_fod_lib",
     module_type: "cc_defaults",
     config_namespace: "batikGlobalVars",
-    value_variables: ["target_surfaceflinger_udfps_lib"],
+    value_variables: ["target_surfaceflinger_fod_lib"],
     properties: [
         "cppflags",
         "whole_static_libs",
     ],
 }
 
-surfaceflinger_udfps_lib {
-    name: "surfaceflinger_udfps_lib_defaults",
+surfaceflinger_fod_lib {
+    name: "surfaceflinger_fod_lib_defaults",
     soong_config_variables: {
-        target_surfaceflinger_udfps_lib: {
-            cppflags: ["-DTARGET_PROVIDES_UDFPS_LIB"],
+        target_surfaceflinger_fod_lib: {
+            cppflags: ["-DTARGET_PROVIDES_FOD_LIB"],
             whole_static_libs: ["%s"],
         },
     },
@@ -251,23 +157,6 @@ ignores_ftp_pptp_conntrack_failure_defaults {
 }
 
 soong_config_module_type {
-    name: "needs_camera_boottime",
-    module_type: "cc_defaults",
-    config_namespace: "batikGlobalVars",
-    bool_variables: ["needs_camera_boottime"],
-    properties: ["cppflags"],
-}
-
-needs_camera_boottime {
-    name: "needs_camera_boottime_defaults",
-    soong_config_variables: {
-        needs_camera_boottime: {
-            cppflags: ["-DTARGET_CAMERA_BOOTTIME_TIMESTAMP"],
-        },
-    },
-}
-
-soong_config_module_type {
     name: "needs_netd_direct_connect_rule",
     module_type: "cc_defaults",
     config_namespace: "batikGlobalVars",
@@ -280,23 +169,6 @@ needs_netd_direct_connect_rule {
     soong_config_variables: {
         needs_netd_direct_connect_rule: {
             cppflags: ["-DNEEDS_NETD_DIRECT_CONNECT_RULE"],
-        },
-    },
-}
-
-soong_config_module_type {
-    name: "legacy_hw_disk_encryption",
-    module_type: "cc_defaults",
-    config_namespace: "batikQcomVars",
-    bool_variables: ["legacy_hw_disk_encryption"],
-    properties: ["cppflags"],
-}
-
-legacy_hw_disk_encryption {
-    name: "legacy_hw_disk_encryption_defaults",
-    soong_config_variables: {
-        legacy_hw_disk_encryption: {
-            cppflags: ["-DLEGACY_HW_DISK_ENCRYPTION"],
         },
     },
 }
@@ -347,23 +219,6 @@ camera_in_mediaserver {
                 "libcameraservice",
                 "libgui",
             ],
-        },
-    },
-}
-
-soong_config_module_type {
-    name: "has_memfd_backport",
-    module_type: "cc_defaults",
-    config_namespace: "batikGlobalVars",
-    bool_variables: ["has_memfd_backport"],
-    properties: ["cppflags"],
-}
-
-has_memfd_backport {
-    name: "has_memfd_backport_defaults",
-    soong_config_variables: {
-        has_memfd_backport: {
-            cppflags: ["-DHAS_MEMFD_BACKPORT"],
         },
     },
 }
@@ -541,7 +396,7 @@ soong_config_module_type {
     name: "surfaceflinger_qcom_extensions",
     module_type: "cc_defaults",
     config_namespace: "batikQcomVars",
-    value_variables: ["qcom_display_headers_namespace"],
+    value_variables: ["qcom_soong_namespace"],
     properties: [
         "cppflags",
         "header_libs",
@@ -551,9 +406,9 @@ soong_config_module_type {
 surfaceflinger_qcom_extensions {
     name: "surfaceflinger_qcom_ext_defaults",
     soong_config_variables: {
-        qcom_display_headers_namespace: {
+        qcom_soong_namespace: {
             cppflags: ["-DQCOM_UM_FAMILY"],
-            header_libs: ["//%s:display_intf_headers"],
+            header_libs: ["//%s/display:display_intf_headers"],
         },
     },
 }
