@@ -53,7 +53,7 @@ cc_library_headers {
 soong_config_module_type {
     name: "disable_postrender_cleanup",
     module_type: "cc_defaults",
-    config_namespace: "evolutionGlobalVars",
+    config_namespace: "batikGlobalVars",
     bool_variables: ["disable_postrender_cleanup"],
     properties: ["cppflags"],
 }
@@ -159,7 +159,7 @@ surfaceflinger_fod_lib {
 soong_config_module_type {
     name: "target_uses_prebuilt_dynamic_partitions",
     module_type: "cc_defaults",
-    config_namespace: "evolutionGlobalVars",
+    config_namespace: "batikGlobalVars",
     bool_variables: ["target_uses_prebuilt_dynamic_partitions"],
     properties: ["cppflags"],
 }
@@ -210,7 +210,7 @@ needs_netd_direct_connect_rule {
 soong_config_module_type {
     name: "target_camera_needs_client_info",
     module_type: "cc_defaults",
-    config_namespace: "evolutionGlobalVars",
+    config_namespace: "batikGlobalVars",
     bool_variables: ["target_camera_needs_client_info"],
     properties: ["cppflags"],
 }
@@ -372,7 +372,7 @@ qti_camera_device {
 soong_config_module_type {
     name: "camera_boottime_timestamp",
     module_type: "cc_defaults",
-    config_namespace: "evolutionQcomVars",
+    config_namespace: "batikQcomVars",
     bool_variables: ["needs_camera_boottime_timestamp"],
     properties: [
         "cflags",
@@ -470,7 +470,7 @@ soong_config_module_type {
     name: "surfaceflinger_qcom_extensions",
     module_type: "cc_defaults",
     config_namespace: "batikQcomVars",
-    value_variables: ["qcom_soong_namespace"],
+    value_variables: ["qcom_display_headers_namespace"],
     properties: [
         "cppflags",
         "header_libs",
@@ -480,9 +480,9 @@ soong_config_module_type {
 surfaceflinger_qcom_extensions {
     name: "surfaceflinger_qcom_ext_defaults",
     soong_config_variables: {
-        qcom_soong_namespace: {
+        qcom_display_headers_namespace: {
             cppflags: ["-DQCOM_UM_FAMILY"],
-            header_libs: ["//%s/display:display_intf_headers"],
+            header_libs: ["//%s:display_intf_headers"],
         },
     },
 }
