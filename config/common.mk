@@ -79,9 +79,6 @@ include vendor/batik/config/batik_audio.mk
 # Include extra packages
 include vendor/batik/config/packages.mk
 
-# Do not include art debug targets
-PRODUCT_ART_TARGET_INCLUDE_DEBUG_BUILD := false
-
 # Livedisplay
 PRODUCT_COPY_FILES += \
     vendor/batik/prebuilt/common/etc/permissions/privapp-permissions-lineagehw.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/privapp-permissions-lineagehw.xml
@@ -183,6 +180,9 @@ PRODUCT_PACKAGE_OVERLAYS += vendor/batik/overlay/common
 
 -include $(WORKSPACE)/build_env/image-auto-bits.mk
 -include vendor/batik/config/partner_gms.mk
+
+# Art
+include vendor/batik/config/art.mk
 
 # Versioning
 include vendor/batik/config/version.mk
