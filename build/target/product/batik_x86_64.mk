@@ -17,4 +17,7 @@ $(call inherit-product, build/target/product/gsi_release.mk)
 
 include vendor/batik/build/target/product/batik_generic_target.mk
 
+# Enable mainline checking
+PRODUCT_ENFORCE_ARTIFACT_PATH_REQUIREMENTS := relaxed
+
 PRODUCT_NAME := batik_x86_64
