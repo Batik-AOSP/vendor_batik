@@ -19,10 +19,6 @@ PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/batik_arm64.mk \
     $(LOCAL_DIR)/batik_x86.mk \
     $(LOCAL_DIR)/batik_x86_64.mk \
-    $(LOCAL_DIR)/batik_arm_ab.mk \
-    $(LOCAL_DIR)/batik_arm64_ab.mk \
-    $(LOCAL_DIR)/batik_x86_ab.mk \
-    $(LOCAL_DIR)/batik_x86_64_ab.mk \
     $(LOCAL_DIR)/batik_tv_arm.mk \
     $(LOCAL_DIR)/batik_tv_arm64.mk \
     $(LOCAL_DIR)/batik_tv_x86.mk \
@@ -37,10 +33,6 @@ COMMON_LUNCH_CHOICES := \
     batik_arm64-userdebug \
     batik_x86-userdebug \
     batik_x86_64-userdebug \
-    batik_arm_ab-userdebug \
-    batik_arm64_ab-userdebug \
-    batik_x86_ab-userdebug \
-    batik_x86_64_ab-userdebug \
     batik_tv_arm-userdebug \
     batik_tv_arm64-userdebug \
     batik_tv_x86-userdebug \
