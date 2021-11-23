@@ -14,7 +14,7 @@
 
 include vendor/batik/build/target/product/batik_generic_car_target.mk
 
-$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_arm64.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/sdk_arm64.mk)
 
 TARGET_NO_KERNEL_OVERRIDE := true
 
