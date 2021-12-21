@@ -4,6 +4,12 @@
 PRODUCT_PACKAGES += \
     ThemePicker
 
+# Udfps
+ifeq ($(EXTRA_UDFPS_ANIMATIONS),true)
+PRODUCT_PACKAGES += \
+    UdfpsResources
+endif
+
 # Config
 PRODUCT_PACKAGES += \
     SimpleDeviceConfig
