@@ -23,8 +23,8 @@ PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/batik_tv_arm64.mk \
     $(LOCAL_DIR)/batik_tv_x86.mk \
     $(LOCAL_DIR)/batik_tv_x86_64.mk \
-    $(LOCAL_DIR)/batik_car_arm64.mk \
-    $(LOCAL_DIR)/batik_car_x86_64.mk \
+    $(LOCAL_DIR)/batik_sdk_car_arm64.mk \
+    $(LOCAL_DIR)/batik_sdk_car_x86_64.mk \
     $(LOCAL_DIR)/batik_sdk_phone_x86.mk \
     $(LOCAL_DIR)/batik_sdk_phone_x86_64.mk
 
@@ -37,7 +37,7 @@ COMMON_LUNCH_CHOICES := \
     batik_tv_arm64-userdebug \
     batik_tv_x86-userdebug \
     batik_tv_x86_64-userdebug \
-    batik_car_arm64-userdebug \
-    batik_car_x86_64-userdebug \
+    batik_sdk_car_arm64-userdebug \
+    batik_sdk_car_x86_64-userdebug \
     batik_sdk_phone_x86-userdebug \
     batik_sdk_phone_x86_64-userdebug

@@ -16,4 +16,4 @@ include vendor/batik/build/target/product/batik_generic_car_target.mk
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/sdk_x86_64.mk)
 
-PRODUCT_NAME := batik_car_x86_64
+PRODUCT_NAME := batik_sdk_car_x86_64
