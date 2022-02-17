@@ -34,7 +34,6 @@ PRODUCT_PACKAGES += \
     DisplayCutoutEmulationNarrowOverlay \
     DisplayCutoutEmulationWideOverlay \
     NoCutoutOverlay \
-    AvoidAppsInCutoutOverlay \
     NavigationBarMode2ButtonOverlay
 
 # Media
