@@ -100,6 +100,16 @@ TARGET_SCREEN_HEIGHT ?= 1920
 PRODUCT_PACKAGES += \
     bootanimation.zip
 
+# Blur properties
+TARGET_USES_BLUR ?= false
+ifeq ($(TARGET_USES_BLUR), true)
+PRODUCT_PACKAGES += \
+    AndroidSystemBlur
+PRODUCT_SYSTEM_EXT_PROPERTIES += \
+    ro.sf.blurs_are_expensive=1 \
+    ro.surface_flinger.supports_background_blur=1
+endif
+
 PRODUCT_COPY_FILES += \
     vendor/batik/prebuilt/common/etc/init/init.batik-updater.rc:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/init/init.batik-updater.rc
 
