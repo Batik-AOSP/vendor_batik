@@ -15,10 +15,10 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/batik_arm.mk \
-    $(LOCAL_DIR)/batik_arm64.mk \
-    $(LOCAL_DIR)/batik_x86.mk \
-    $(LOCAL_DIR)/batik_x86_64.mk \
+    $(LOCAL_DIR)/batik_gsi_arm.mk \
+    $(LOCAL_DIR)/batik_gsi_arm64.mk \
+    $(LOCAL_DIR)/batik_gsi_x86.mk \
+    $(LOCAL_DIR)/batik_gsi_x86_64.mk \
     $(LOCAL_DIR)/batik_tv_arm.mk \
     $(LOCAL_DIR)/batik_tv_arm64.mk \
     $(LOCAL_DIR)/batik_tv_x86.mk \
@@ -29,10 +29,10 @@ PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/batik_sdk_phone_x86_64.mk
 
 COMMON_LUNCH_CHOICES := \
-    batik_arm-userdebug \
-    batik_arm64-userdebug \
-    batik_x86-userdebug \
-    batik_x86_64-userdebug \
+    batik_gsi_arm-userdebug \
+    batik_gsi_arm64-userdebug \
+    batik_gsi_x86-userdebug \
+    batik_gsi_x86_64-userdebug \
     batik_tv_arm-userdebug \
     batik_tv_arm64-userdebug \
     batik_tv_x86-userdebug \
