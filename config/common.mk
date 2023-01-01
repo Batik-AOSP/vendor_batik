@@ -159,6 +159,10 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
 PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += vendor/batik/overlay
 PRODUCT_PACKAGE_OVERLAYS += vendor/batik/overlay/common
 
+# Enable SystemUIDialog volume panel
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+    sys.fflag.override.settings_volume_panel_in_systemui=true
+
 -include $(WORKSPACE)/build_env/image-auto-bits.mk
 -include vendor/batik/config/partner_gms.mk
 
