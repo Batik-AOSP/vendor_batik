@@ -145,6 +145,10 @@ PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
     system/bin/procmem
 endif
 
+# BtHelper
+PRODUCT_PACKAGES += \
+    BtHelper
+
 # Root
 PRODUCT_PACKAGES += \
     adb_root
