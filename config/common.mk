@@ -161,8 +161,10 @@ PRODUCT_DEXPREOPT_SPEED_APPS += \
 PRODUCT_PRODUCT_PROPERTIES += \
 	persist.sys.disable_rescue=true
 
-PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += vendor/batik/overlay
-PRODUCT_PACKAGE_OVERLAYS += vendor/batik/overlay/common
+PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += vendor/batik/overlay/no-rro
+PRODUCT_PACKAGE_OVERLAYS += \
+    vendor/batik/overlay/common \
+    vendor/batik/overlay/no-rro
 
 # Enable SystemUIDialog volume panel
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
