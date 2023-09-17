@@ -150,7 +150,13 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     adb_root
 
-# Dex preopt
+# TextClassifier
+PRODUCT_PACKAGES += \
+    libtextclassifier_annotator_en_model \
+    libtextclassifier_annotator_universal_model \
+    libtextclassifier_actions_suggestions_universal_model \
+    libtextclassifier_lang_id_model
+
 PRODUCT_DEXPREOPT_SPEED_APPS += \
     SettingsGoogle \
     SystemUIGoogle \
