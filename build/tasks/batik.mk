@@ -2,6 +2,9 @@ BATIK_TARGET_PACKAGE := $(PRODUCT_OUT)/Batik-$(BATIK_VERSION).zip
 
 SHA256 := prebuilts/build-tools/path/$(HOST_PREBUILT_TAG)/sha256sum
 
+# colors
+CL_GOLD="\e[38;5;214m"
+
 .PHONY: batik bacon
 batik: otapackage
 	$(hide) mv $(INTERNAL_OTA_PACKAGE_TARGET) $(BATIK_TARGET_PACKAGE)
