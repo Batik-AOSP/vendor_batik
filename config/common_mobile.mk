@@ -12,16 +12,16 @@ PRODUCT_PACKAGES += \
 
 ifeq ($(PRODUCT_TYPE), go)
 PRODUCT_PACKAGES += \
-    TrebuchetQuickStepGo
+    batikLauncherQuickStepGo
 
 PRODUCT_DEXPREOPT_SPEED_APPS += \
-    TrebuchetQuickStepGo
+    batikLauncherQuickStepGo
 else
 PRODUCT_PACKAGES += \
-    TrebuchetQuickStep
+    batikLauncherQuickStep
 
 PRODUCT_DEXPREOPT_SPEED_APPS += \
-    TrebuchetQuickStep
+    batikLauncherQuickStep
 endif
 
 # Charger
