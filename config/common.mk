@@ -161,10 +161,6 @@ PRODUCT_DEXPREOPT_SPEED_APPS += \
 PRODUCT_PRODUCT_PROPERTIES += \
 	persist.sys.disable_rescue=true
 
-# Blur
-PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
-    ro.launcher.blur.appLaunch=false
-
 PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += vendor/batik/overlay
 PRODUCT_PACKAGE_OVERLAYS += vendor/batik/overlay/common
 
