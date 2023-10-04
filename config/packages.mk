@@ -1,7 +1,12 @@
 # Batik packages
+PRODUCT_PACKAGES += \
+    GameSpace \
+    TouchGestures \
+    Updater
 
 # Themes
 PRODUCT_PACKAGES += \
+    batikWalls
     ThemePicker
 
 # Udfps
