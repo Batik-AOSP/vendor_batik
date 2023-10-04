@@ -113,9 +113,6 @@ PRODUCT_SYSTEM_EXT_PROPERTIES += \
 endif
 
 PRODUCT_COPY_FILES += \
-    vendor/batik/prebuilt/common/etc/permissions/com.google.android.apps.dialer.call_recording_audio.features.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/com.google.android.apps.dialer.call_recording_audio.features.xml
-
-PRODUCT_COPY_FILES += \
     vendor/batik/prebuilt/common/etc/init/init.batik-updater.rc:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/init/init.batik-updater.rc
 
 PRODUCT_COPY_FILES += \
