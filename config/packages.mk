@@ -6,7 +6,7 @@ PRODUCT_PACKAGES += \
 
 # Themes
 PRODUCT_PACKAGES += \
-    batikWalls
+    batikWalls \
     ThemePicker
 
 # Udfps
