@@ -8,4 +8,4 @@ PRODUCT_PACKAGES += \
     fonts_customization.xml
 
 # Overlays
-include vendor/overlay/overlays.mk
+#include vendor/overlay/overlays.mk
